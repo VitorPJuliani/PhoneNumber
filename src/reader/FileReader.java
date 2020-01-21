@@ -1,4 +1,4 @@
-package Reader;
+package reader;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -22,7 +22,7 @@ public class FileReader {
 
         List<String> listOfPhones = new ArrayList<>();
 
-        try (BufferedReader reader = Files.newBufferedReader(Paths.get("src/File/" + fileName))) {
+        try (BufferedReader reader = Files.newBufferedReader(Paths.get("src/file/" + fileName))) {
             listOfPhones = reader.lines().collect(Collectors.toList());
         } catch (IOException e) {
             e.printStackTrace();
