@@ -1,6 +1,8 @@
-import Reader.FileReader;
+import model.PhoneNumber;
+import reader.FileReader;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -9,9 +11,14 @@ public class Main {
         System.out.println("Digite o nome do arquivo que você deseja que seja lido: ");
         Scanner fileName = new Scanner(System.in);
 
-        List<String> phoneNumbers = FileReader.readFile(fileName.nextLine());
+        List<String> textNumbers =
+                FileReader.readFile(fileName.nextLine());
 
-        System.out.println(phoneNumbers);
+        List<PhoneNumber> phoneNumbers =
+                textNumbers.stream().map(PhoneNumber::new).collect(Collectors.toList());
+
+        phoneNumbers.forEach(System.out::println);
+
 
     }
 }
