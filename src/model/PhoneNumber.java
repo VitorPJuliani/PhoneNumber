@@ -2,35 +2,65 @@ package model;
 
 import java.util.Objects;
 
+/**
+ * Model that represents a phone number
+ * @author Vitor Juliani
+ * @version 1.0
+ */
 public class PhoneNumber {
 
-    private long ddd;
-    private long number;
+    private int ddd;
+    private int number;
 
+    /**
+     * Method to initialize phone number object breaking the complete number into ddd and number
+     * @param completeNumber String with complete number
+     */
     public PhoneNumber(String completeNumber) {
 
         completeNumber = completeNumber.startsWith("0") ? completeNumber.substring(1) : completeNumber;
 
-        this.ddd = Long.parseLong(completeNumber.substring(0, 2));
-        this.number = Long.parseLong(completeNumber.substring(2,11));
+        this.ddd = Integer.parseInt(completeNumber.substring(0, 2));
+        this.number = Integer.parseInt(completeNumber.substring(2,11));
     }
 
-    public long getDdd() {
+    /**
+     * Getter of ddd field
+     * @return Integer with ddd value
+     */
+    public int getDdd() {
         return ddd;
     }
 
+    /**
+     * Setter of ddd field
+     * @param ddd Integer that contains the ddd value
+     */
     public void setDdd(int ddd) {
         this.ddd = ddd;
     }
 
+    /**
+     * Getter of number value
+     * @return Integer with the value of the number
+     */
     public long getNumber() {
         return number;
     }
 
+    /**
+     * Setter of number field
+     * @param number Integer that contains the number value
+     */
     public void setNumber(int number) {
         this.number = number;
     }
 
+    /**
+     * Method to verify if two objects are equals
+     * @param o Param of Object class
+     * @return Boolean
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -40,11 +70,19 @@ public class PhoneNumber {
                 number == that.number;
     }
 
+    /**
+     * Hash technique
+     * @return Integer with the hash value of object
+     */
     @Override
     public int hashCode() {
         return Objects.hash(ddd, number);
     }
 
+    /**
+     * String representation
+     * @return String with models field
+     */
     @Override
     public String toString() {
         return "PhoneNumber{" +
