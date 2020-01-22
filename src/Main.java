@@ -1,4 +1,5 @@
 import model.PhoneNumber;
+import order.Order;
 import reader.FileReader;
 import java.util.List;
 import java.util.Scanner;
@@ -17,8 +18,15 @@ public class Main {
         List<PhoneNumber> phoneNumbers =
                 textNumbers.stream().map(PhoneNumber::new).collect(Collectors.toList());
 
-        phoneNumbers.forEach(System.out::println);
+        Order order = new Order();
 
+        phoneNumbers =
+                order.sortPhoneNumbers(phoneNumbers);
+
+        phoneNumbers =
+                order.sortDdd(phoneNumbers);
+
+        phoneNumbers.forEach(System.out::println);
 
     }
 }
