@@ -3,15 +3,13 @@ package comparators;
 import model.PhoneNumber;
 import utils.Utils;
 
-import java.util.Comparator;
-
 /**
  * Comparator that only see DDD with value 19
  *
  * @author Vitor Juliani
  * @version 1.0
  */
-public class CampinasComparator implements Comparator<PhoneNumber> {
+public class CampinasComparator extends Comparator {
 
     /**
      *
