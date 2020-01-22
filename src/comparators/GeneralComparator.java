@@ -1,7 +1,6 @@
 package comparators;
 
 import model.PhoneNumber;
-import java.util.Comparator;
 
 /**
  * Comparator that see other ddds
@@ -9,7 +8,7 @@ import java.util.Comparator;
  * @author Vitor Juliani
  * @version 1.0
  */
-public class GeneralComparator implements Comparator<PhoneNumber> {
+public class GeneralComparator extends Comparator {
 
     /**
      *
