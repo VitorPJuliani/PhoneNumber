@@ -1,6 +1,7 @@
 package comparators;
 
 import model.PhoneNumber;
+import utils.Utils;
 
 import java.util.Comparator;
 
@@ -20,12 +21,6 @@ public class SaoPauloComparator implements Comparator<PhoneNumber> {
      */
     @Override
     public int compare(PhoneNumber phoneNumber, PhoneNumber anotherNumber) {
-        if(phoneNumber.getDdd() == 11 && anotherNumber.getDdd() != 11)
-            return -1;
-
-        if(phoneNumber.getDdd() != 11 && anotherNumber.getDdd() == 11)
-            return 1;
-
-        return 0;
+        return Utils.comparePhoneNumbers(phoneNumber.getDdd(), anotherNumber.getDdd(), 11);
     }
 }
