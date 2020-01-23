@@ -18,6 +18,9 @@ public class PhoneNumber {
      */
     public PhoneNumber(String completeNumber) {
 
+        if (!completeNumber.matches("[0-9]+"))
+            throw new IllegalArgumentException();
+
         completeNumber = completeNumber.startsWith("0") ? completeNumber.substring(1) : completeNumber;
 
         this.ddd = Integer.parseInt(completeNumber.substring(0, 2));
@@ -37,6 +40,9 @@ public class PhoneNumber {
      * @param ddd Integer that contains the ddd value
      */
     public void setDdd(int ddd) {
+        if (ddd < 0)
+            throw new IllegalArgumentException();
+
         this.ddd = ddd;
     }
 
@@ -53,6 +59,9 @@ public class PhoneNumber {
      * @param number Integer that contains the number value
      */
     public void setNumber(int number) {
+        if (number < 0)
+            throw new IllegalArgumentException();
+
         this.number = number;
     }
 
