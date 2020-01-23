@@ -1,15 +1,14 @@
 package comparators;
 
 import model.PhoneNumber;
-import utils.Utils;
 
 /**
  * Comparator that only see DDD with value 11
  *
  * @author Vitor Juliani
- * @version 1.0
+ * @version 2.0
  */
-public class SaoPauloComparator extends Comparator {
+public class SaoPauloComparator implements AreaCodeComparator {
 
     /**
      *
@@ -19,6 +18,12 @@ public class SaoPauloComparator extends Comparator {
      */
     @Override
     public int compare(PhoneNumber phoneNumber, PhoneNumber anotherNumber) {
-        return Utils.comparePhoneNumbers(phoneNumber.getDdd(), anotherNumber.getDdd(), 11);
+        if (phoneNumber.getDdd() == 11 && anotherNumber.getDdd() != 11)
+            return -1;
+
+        if (phoneNumber.getDdd() != 11 && anotherNumber.getDdd() == 1)
+            return 1;
+
+        return 0;
     }
 }
