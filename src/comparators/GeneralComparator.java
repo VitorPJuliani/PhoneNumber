@@ -8,7 +8,7 @@ import model.PhoneNumber;
  * @author Vitor Juliani
  * @version 1.0
  */
-public class GeneralComparator extends Comparator {
+public class GeneralComparator implements AreaCodeComparator {
 
     /**
      *

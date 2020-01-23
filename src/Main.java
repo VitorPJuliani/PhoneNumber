@@ -1,9 +1,10 @@
-import model.PhoneNumber;
-import order.Order;
+import distinct.DistinctNumbers;
+import order.PhoneNumbers;
+import order.SortAreaCode;
+import order.SortPhoneNumbers;
 import reader.FileReader;
-import java.util.List;
+
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class Main {
 
@@ -12,21 +13,19 @@ public class Main {
             System.out.println("Digite o nome do arquivo que você deseja que seja lido: ");
             Scanner fileName = new Scanner(System.in);
 
-            List<String> textNumbers =
-                    FileReader.readFile(fileName.nextLine());
+            PhoneNumbers textNumbers =
+                    new FileReader(fileName.nextLine());
 
-            List<PhoneNumber> phoneNumbers =
-                    textNumbers.stream().map(PhoneNumber::new).collect(Collectors.toList());
+            PhoneNumbers distinctNumbers =
+                    new DistinctNumbers(textNumbers);
 
-            Order order = new Order();
+            PhoneNumbers numbersOrdered =
+                    new SortPhoneNumbers(distinctNumbers);
 
-            phoneNumbers =
-                    order.sortPhoneNumbers(phoneNumbers);
+            PhoneNumbers areaCodesOrdered =
+                    new SortAreaCode(numbersOrdered);
 
-            phoneNumbers =
-                    order.sortDdd(phoneNumbers);
-
-            phoneNumbers.forEach(System.out::println);
+            areaCodesOrdered.forEach(System.out::println);
         } catch (Exception e) {
             e.printStackTrace();
         }
