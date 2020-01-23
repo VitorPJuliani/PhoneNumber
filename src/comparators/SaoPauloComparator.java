@@ -21,7 +21,7 @@ public class SaoPauloComparator implements AreaCodeComparator {
         if (phoneNumber.getDdd() == 11 && anotherNumber.getDdd() != 11)
             return -1;
 
-        if (phoneNumber.getDdd() != 11 && anotherNumber.getDdd() == 1)
+        if (phoneNumber.getDdd() != 11 && anotherNumber.getDdd() == 11)
             return 1;
 
         return 0;
