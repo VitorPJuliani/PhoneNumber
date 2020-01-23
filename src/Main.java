@@ -1,8 +1,6 @@
 import model.PhoneNumber;
 import order.Order;
 import reader.FileReader;
-
-import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;

@@ -56,7 +56,7 @@ public class PhoneNumber {
 
     /**
      * Setter of number field
-     * @param number Integer that contains the number value
+     * IOException@param number Integer that contains the number value
      */
     public void setNumber(int number) {
         if (number < 0)
